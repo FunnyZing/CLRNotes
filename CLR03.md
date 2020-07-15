@@ -157,7 +157,8 @@
 
     对这些代码进行JIT编译，CLR会检测所有类型成员引用，加载它们的定义程序集（如果尚未加载）
     上述IL代码包含对System.Console.WriteLine的引用。具体地说：
-        首先IL call指令引用了元数据token 0A000003。该token标识MemberRef元数据表中记录的项3，然后CLR检查该MemberRef记录项，发现他的字段引用了TypeRef表中的记录System.
+        首先IL call指令引用了元数据token 0A000003。该token标识MemberRef元数据表中记录
+        的项3，然后CLR检查该MemberRef记录项，发现他的字段引用了TypeRef表中的记录System.
         Console类型。按照TypeRef记录项，CLR被引导至一个AssemblyRef记录项：
         “mscorlib,Version=4.0.0.0,Culture=neutral,PublicKeyToken=b77a5c561934e089”
         这时CLR就知道了他需要的是哪个程序集。接着CLR必须定位并加载该程序集。
